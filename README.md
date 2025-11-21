@@ -14,13 +14,7 @@ The pipeline normalizes and stores all data in a **MySQL database**, enabling an
 ## Data Pipeline
 1. **Fetch Data**  
    Python scripts call APIs and optionally scrape web data.
-2. **Normalize & Clean Data**  
-   Flatten JSON responses into pandas DataFrames.
-3. **Store in MySQL**  
-   Insert cleaned data into 'Population' `City`, `Airport`, `Flight`, and `Weather` tables.
-4. **Analyze**  
-   Query flights, monitor weather, and visualize trends.
-   
+ 
 ## Data Pipeline Flow Diagram Placeholder
    
 +----------------+      +----------------+      +----------------+      +----------------+
@@ -47,9 +41,11 @@ The pipeline normalizes and stores all data in a **MySQL database**, enabling an
                                  +----------------+
                                  |  Analytics /   |
                                  |  Dashboard /   |
-                                 |     ML         |
                                  +----------------+
 
+  3. **Store in MySQL**  
+   Insert cleaned data into 'Population' `City`, `Airport`, `Flight`, and `Weather` tables.
+                       
 ## SQL Table Schema (MySQL)
 
 CREATE TABLE City (
@@ -86,3 +82,9 @@ CREATE TABLE Weather (
     timestamp DATETIME,
     FOREIGN KEY (city_id) REFERENCES City(city_id)
 );
+
+2. **Normalize & Clean Data**  
+   Flatten JSON responses into pandas DataFrames.
+   
+4. **Analyze**  
+   Query flights, monitor weather, and visualize trends.
