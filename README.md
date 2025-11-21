@@ -5,15 +5,16 @@ Case Study: Gans
 ## Project Overview
 This project builds a data pipeline for a scooter fleet management company.   
 integrates:
-- Weather data from OpenWeatherMap API
-- Flight data from AeroDataBox API
-- Optional web-scraped data
+- Weather data from OpenWeatherMap API- provides temperature, humidity, wind, and conditions.
+- Flight data from AeroDataBox API - tracks flights arriving/departing near cities with scooter fleets.
+- Optional web-scraped data-e.g., traffic, events, or local conditions affecting scooters.
 
 The pipeline normalizes and stores all data in a **MySQL database**, enabling analytics, reporting, and future machine learning applications.
 
 ## Data Pipeline
-1. **Fetch Data**  
-   Python scripts call APIs and optionally scrape web data.
+**Fetch Data**
+Python scripts call APIs and optionally scrape web data.
+Raw data is collected in JSON or other formats.
  
 ## Data Pipeline Flow Diagram Placeholder
    
@@ -89,6 +90,16 @@ CREATE TABLE flights (
 
 2. **Normalize & Clean Data**  
    Flatten JSON responses into pandas DataFrames.
+   
+   Use pandas to flatten JSON responses.
+Standardize columns, handle missing data, correct types.
+Ensure latitude, longitude, timestamps, and IDs are consistent.
 
 4. **Analyze**  
    Query flights, monitor weather, and visualize trends.
+   
+Analytics & Reporting
+Query MySQL to monitor scooter fleet needs:
+eather impact on usage.
+Flight schedules affecting demand near airports.
+Enable dashboards for visualization or predictive modeling.
