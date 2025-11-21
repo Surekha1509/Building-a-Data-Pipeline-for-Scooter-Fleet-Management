@@ -85,6 +85,6 @@ CREATE TABLE Weather (
 
 2. **Normalize & Clean Data**  
    Flatten JSON responses into pandas DataFrames.
-   
+
 4. **Analyze**  
    Query flights, monitor weather, and visualize trends.
