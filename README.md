@@ -1,4 +1,4 @@
-# Building-a-Data-Pipeline-for-Scooter-Fleet-Management
+Case Study: Gans
 
 # Scooter Fleet Data Pipeline
 
