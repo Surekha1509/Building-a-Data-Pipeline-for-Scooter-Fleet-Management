@@ -47,41 +47,45 @@ The pipeline normalizes and stores all data in a **MySQL database**, enabling an
    Insert cleaned data into 'Population' `City`, `Airport`, `Flight`, and `Weather` tables.
                        
 ## SQL Table Schema (MySQL)
+# MySQL database: connecting with python
 
-CREATE TABLE City (
-    city_id INT PRIMARY KEY,
-    name VARCHAR(100),
-    country VARCHAR(50),
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6)
+CREATE TABLE cities (
+    city_id INT PRIMARY KEY AUTO_INCREMENT,
+    city_name VARCHAR(100) NOT NULL,
+    country_code CHAR(2) NOT NULL,
+    latitude DECIMAL(10,6) NOT NULL,
+    longitude DECIMAL(10,6) NOT NULL
 );
 
-CREATE TABLE Airport (
-    ICAO VARCHAR(10) PRIMARY KEY,
-    city_id INT,
-    name VARCHAR(100),
-    type VARCHAR(50),
-    FOREIGN KEY (city_id) REFERENCES City(city_id)
+CREATE TABLE populations (
+    population_id INT PRIMARY KEY AUTO_INCREMENT,
+    city_id INT NOT NULL,
+    population DECIMAL(10,2),
+    year YEAR NOT NULL,
+    FOREIGN KEY (city_id) REFERENCES cities(city_id)
 );
 
-CREATE TABLE Flight (
-    flight_id INT PRIMARY KEY AUTO_INCREMENT,
-    ICAO VARCHAR(10),
-    flight_number VARCHAR(20),
-    airline VARCHAR(100),
-    arrival_time DATETIME,
-    departure_airport VARCHAR(10),
-    FOREIGN KEY (ICAO) REFERENCES Airport(ICAO)
-);
-
-CREATE TABLE Weather (
+CREATE TABLE weather (
     weather_id INT PRIMARY KEY AUTO_INCREMENT,
-    city_id INT,
-    temp DECIMAL(5,2),
-    description VARCHAR(100),
-    timestamp DATETIME,
-    FOREIGN KEY (city_id) REFERENCES City(city_id)
+    city_id INT NOT NULL,
+    timestamp_weather DATETIME NOT NULL,
+    temperature DECIMAL(5,2),
+    humidity INT,
+    wind_speed DECIMAL(5,2),
+    condition VARCHAR(100),
+    FOREIGN KEY (city_id) REFERENCES cities(city_id)
 );
+
+CREATE TABLE flights (
+    flight_id INT PRIMARY KEY AUTO_INCREMENT,
+    city_id INT NOT NULL,
+    timestamp_flight DATETIME NOT NULL,
+    flights_arriving INT,
+    flights_departing INT,
+    airport_code VARCHAR(10),
+    FOREIGN KEY (city_id) REFERENCES cities(city_id)
+);
+
 
 2. **Normalize & Clean Data**  
    Flatten JSON responses into pandas DataFrames.
