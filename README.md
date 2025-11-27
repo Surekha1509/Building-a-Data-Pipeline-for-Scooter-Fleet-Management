@@ -160,12 +160,10 @@ Migrating the database to the cloud allows:
 
 
 ⚙️ Setup & Installation
-1️⃣ Clone this repository
-git clone https://github.com/
-cd gans-data-engineering
-2️⃣ Install dependencies
+
+1 Install dependencies
 pip install -r requirements.txt
-3️⃣ Set up your environment variables
+2 Set up your environment variables
 Go to utils.py and write your informations.
 
 RAPID_API_KEY = "your_api_key"
