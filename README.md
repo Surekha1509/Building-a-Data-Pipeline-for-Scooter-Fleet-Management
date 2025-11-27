@@ -1,7 +1,7 @@
 Phase 1:
 Case Study: Gans
 
-# Scooter Fleet Data Pipeline
+# Scooter Fleet Data Pipeline(locally)
 
 ## Project Overview
 This project builds a data pipeline for a scooter fleet management company.   
