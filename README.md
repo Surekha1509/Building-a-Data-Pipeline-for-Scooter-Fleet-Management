@@ -158,22 +158,6 @@ All of this data is processed using Python and pandas, and stored in a MySQL dat
 🌍 Why the Cloud?
 Migrating the database to the cloud allows:
 
-🌍 Global accessibility — everyone in the company can access the data securely.
-⚙️ Automation — data collection and updates can be scheduled via Cloud Scheduler.
-📈 Scalability — the system grows as data volume increases.
-🔐 Security — managed authentication and storage.
-
-While debugging Cloud Functions directly can be difficult, we developed and tested each function locally first using Flask to simulate API requests before deploying to Google Cloud.
-
-🧰 Tech Stack
-Category	Tools / Libraries
-Language	Python 3
-Data Extraction	requests, BeautifulSoup, OpenWeather API
-Data Processing	pandas, json
-Database	MySQL (Google Cloud SQL)
-Cloud & Automation	Google Cloud Functions, Cloud Scheduler
-Local Debugging	Flask
-Utilities	Custom helper scripts (utils.py)
 
 ⚙️ Setup & Installation
 1️⃣ Clone this repository
